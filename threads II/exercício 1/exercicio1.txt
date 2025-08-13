@@ -1,0 +1,6 @@
+Estender Thread:
+É indicado quando a classe criada não precisa herdar de nenhuma outra (pois Java não suporta herança múltipla) e você quer customizar diretamente a thread, sobrescrevendo o método run().
+Exemplo: classes simples e auto-contidas onde o próprio objeto é a thread.
+
+Implementar Runnable:
+É mais recomendado na maioria dos casos, pois permite que a classe herde de outra classe ao mesmo tempo, já que você apenas implementa uma interface. Além disso, facilita compartilhar o mesmo código de execução entre múltiplas threads.

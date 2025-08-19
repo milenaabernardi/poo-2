@@ -1,0 +1,8 @@
+Tique Taque
+Tique Taque
+Tique Tique Taque
+Taque Tique
+Taque ...
+
+as mensagens ficam sem coordenação, podendo embaralhar e até mesmo sair várias vezes seguidas, o motivo disso é porque as threads executam de forma independente.
+isso ocorre porque wait() e notify() eram responsáveis por fazer com que  as threads se alternassem.

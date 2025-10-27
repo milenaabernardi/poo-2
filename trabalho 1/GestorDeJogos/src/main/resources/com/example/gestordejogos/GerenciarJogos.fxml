@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gestordejogos.controller.GerenciarJogosController">
+    <children>
+        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+            <Label text="Gerenciamento de Jogos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10.0" vgap="5.0">
+                <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="txtTitulo" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200.0"/>
+
+                <Label text="Gênero:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="txtGenero" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200.0"/>
+
+                <Label text="Ano:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextField fx:id="txtAno" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="100.0"/>
+
+                <Label text="Estúdio:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <ComboBox fx:id="cmbEstudio" prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+
+            <HBox spacing="10.0">
+                <Button text="Salvar" onAction="#salvarJogo" style="-fx-base: #4CAF50; -fx-text-fill: white;"/>
+                <Button text="Novo" onAction="#limparCampos" />
+                <Button text="Excluir" onAction="#excluirJogo" style="-fx-base: #f44336; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+
+        <TableView fx:id="tblJogos" layoutX="14.0" layoutY="210.0" prefHeight="220.0" prefWidth="570.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colTitulo" prefWidth="160.0" text="Título" />
+                <TableColumn fx:id="colGenero" prefWidth="100.0" text="Gênero" />
+                <TableColumn fx:id="colAno" prefWidth="70.0" text="Ano" />
+                <TableColumn fx:id="colEstudio" prefWidth="170.0" text="Estúdio" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

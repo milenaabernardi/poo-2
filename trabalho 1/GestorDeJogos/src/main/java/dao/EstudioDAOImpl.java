@@ -10,17 +10,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-// Implementação que contém o código SQL real
 public class EstudioDAOImpl implements EstudioDAO {
 
     private Connection conn;
 
+    /**
+     * Construtor para a APLICAÇÃO REAL.
+     */
     public EstudioDAOImpl() throws SQLException {
         this.conn = ConexaoPostgreSQL.getConexao();
     }
 
+    /**
+     * Construtor para os TESTES.
+     */
+    public EstudioDAOImpl(Connection conn) {
+        this.conn = conn;
+    }
+
     @Override
     public void criar(Estudio estudio) throws SQLException {
+        // CORRIGIDO: de "estudios" para "estudio"
         String sql = "INSERT INTO estudio (nome, pais_origem) VALUES (?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, estudio.getNome());
@@ -35,6 +45,7 @@ public class EstudioDAOImpl implements EstudioDAO {
     @Override
     public List<Estudio> consultar() throws SQLException {
         List<Estudio> estudios = new ArrayList<>();
+        // CORRIGIDO: de "estudios" para "estudio"
         String sql = "SELECT * FROM estudio ORDER BY nome";
         try (PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -54,6 +65,7 @@ public class EstudioDAOImpl implements EstudioDAO {
 
     @Override
     public void atualizar(Estudio estudio) throws SQLException {
+        // CORRIGIDO: de "estudios" para "estudio"
         String sql = "UPDATE estudio SET nome = ?, pais_origem = ? WHERE id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, estudio.getNome());
@@ -68,6 +80,7 @@ public class EstudioDAOImpl implements EstudioDAO {
 
     @Override
     public void excluir(int id) throws SQLException {
+        // CORRIGIDO: de "estudios" para "estudio"
         String sql = "DELETE FROM estudio WHERE id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
